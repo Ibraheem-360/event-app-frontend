@@ -1,0 +1,27 @@
+<div *ngFor="let event of events" class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text">{{ event.description }}</p>
+        <p class="card-text"><strong>Date:</strong> {{ event.eventDate | date }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Capacity:</strong> {{ event.capacity }}</p>
+
+        <button class="btn btn-primary" (click)="registerForEvent(event.id!)">
+            Register
+        </button>
+
+        <button class="btn btn-link" (click)="toggleAttendees(event.id!)">
+            {{ showAttendees[event.id!] ? 'Hide Attendees' : 'Show Attendees' }}
+        </button>
+
+        <!-- Display Attendees when showAttendees[event.id] is true -->
+        <div *ngIf="showAttendees[event.id!]" class="attendees-list mt-2">
+            <h6>Attendees</h6>
+            <ul>
+                <li *ngFor="let attendee of attendees[event.id!]">
+                    {{ attendee.username }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

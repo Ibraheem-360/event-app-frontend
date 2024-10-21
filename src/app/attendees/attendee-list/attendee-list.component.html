@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Attendees for Event {{ eventId }}</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Event ID</th>
+                <th>Event Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let attendee of attendees; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{ attendee.userId }}</td>
+                <td>{{ attendee.username }}</td>
+                <td>{{ attendee.eventId }}</td>
+                <td>{{ attendee.eventTitle }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
